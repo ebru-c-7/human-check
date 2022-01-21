@@ -7,7 +7,10 @@
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client-setup": "cd client && npm install",
+    "setup": "npm install && npm run client-setup",
+    "build": "cd client && npm run build"
   },
   "author": "ebru-c-7",
   "license": "ISC",
