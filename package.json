@@ -1,0 +1,20 @@
+{
+  "name": "human-check",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "ebru-c-7",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "concurrently": "^6.2.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
