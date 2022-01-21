@@ -1,7 +1,6 @@
 const axios = require("axios");
-const {
-  KEYS: { recaptcha },
-} = require("./key.js");
+
+const { KEYS } = process.env.SECRET_KEY ? { KEYS: null } : require("./key.js");
 
 exports.USER = {
   email: "test@test.com",
@@ -9,8 +8,8 @@ exports.USER = {
 };
 
 exports.checkRecaptcha = async (value) => {
-  console.log(value);
-  const url = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptcha.SECRET_KEY}&response=${value}`;
+  const secretKey = process.env.SECRET_KEY || KEYS.recaptcha.SECRET_KEY;
+  const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${value}`;
   const headers = {
     "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
   };
